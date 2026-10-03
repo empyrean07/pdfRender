@@ -1,0 +1,54 @@
+# Multistage Dockerfile for Academic Markdown PDF Renderer Backend & Renderer Worker
+FROM node:20-bookworm AS base
+
+# Install Rust & build essentials
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    curl \
+    ca-certificates \
+    git \
+    libssl-dev \
+    pkg-config \
+    # Chromium dependencies for Playwright
+    libnss3 \
+    libatk1.0-0 \
+    libatk-bridge2.0-0 \
+    libcups2 \
+    libdrm2 \
+    libxkbcommon0 \
+    libxcomposite1 \
+    libxdamage1 \
+    libxfixes3 \
+    libxrandr2 \
+    libgbm1 \
+    libasound2 \
+    libpango-1.0-0 \
+    libpanic1.0-0 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Rust toolchain
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+ENV PATH="/root/.cargo/bin:${PATH}"
+
+WORKDIR /app
+
+# Copy renderer-service and install playwright chromium
+COPY renderer-service ./renderer-service
+RUN cd renderer-service && npm install && npx playwright install chromium --with-deps
+
+# Copy backend source code and build production binary
+COPY backend ./backend
+WORKDIR /app/backend
+RUN cargo build --release
+
+WORKDIR /app
+
+# Prepare storage directories
+RUN mkdir -p storage/uploads storage/extracted storage/generated storage/previews
+
+EXPOSE 3001
+
+ENV PORT=3001
+ENV RUST_LOG=info
+
+CMD ["./backend/target/release/backend"]
