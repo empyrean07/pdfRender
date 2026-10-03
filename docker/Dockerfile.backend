@@ -23,7 +23,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libgbm1 \
     libasound2 \
     libpango-1.0-0 \
-    libpanic1.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Rust toolchain
