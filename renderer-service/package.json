@@ -1,0 +1,14 @@
+{
+  "name": "renderer-service",
+  "version": "1.0.0",
+  "description": "Playwright-based HTML to PDF renderer service",
+  "main": "render.js",
+  "type": "module",
+  "scripts": {
+    "render": "node render.js",
+    "install-browser": "npx playwright install chromium"
+  },
+  "dependencies": {
+    "playwright": "^1.45.0"
+  }
+}

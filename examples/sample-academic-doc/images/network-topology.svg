@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 240" width="100%" height="240">
+  <rect width="100%" height="100%" fill="#f8fafc" rx="8"/>
+  
+  <!-- Bus Line -->
+  <line x1="60" y1="120" x2="640" y2="120" stroke="#1e293b" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Terminators -->
+  <rect x="45" y="105" width="15" height="30" fill="#dc2626" rx="3"/>
+  <text x="52" y="150" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#dc2626" font-weight="bold">Terminator</text>
+  
+  <rect x="640" y="105" width="15" height="30" fill="#dc2626" rx="3"/>
+  <text x="647" y="150" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#dc2626" font-weight="bold">Terminator</text>
+
+  <!-- Node 1 -->
+  <line x1="150" y1="120" x2="150" y2="60" stroke="#3b82f6" stroke-width="3"/>
+  <rect x="110" y="20" width="80" height="40" fill="#2563eb" rx="6"/>
+  <text x="150" y="45" font-family="sans-serif" font-size="13" fill="#ffffff" font-weight="bold" text-anchor="middle">Host A</text>
+
+  <!-- Node 2 -->
+  <line x1="300" y1="120" x2="300" y2="180" stroke="#3b82f6" stroke-width="3"/>
+  <rect x="260" y="180" width="80" height="40" fill="#2563eb" rx="6"/>
+  <text x="300" y="205" font-family="sans-serif" font-size="13" fill="#ffffff" font-weight="bold" text-anchor="middle">Host B</text>
+
+  <!-- Node 3 -->
+  <line x1="450" y1="120" x2="450" y2="60" stroke="#3b82f6" stroke-width="3"/>
+  <rect x="410" y="20" width="80" height="40" fill="#2563eb" rx="6"/>
+  <text x="450" y="45" font-family="sans-serif" font-size="13" fill="#ffffff" font-weight="bold" text-anchor="middle">Server</text>
+
+  <!-- Node 4 -->
+  <line x1="600" y1="120" x2="600" y2="180" stroke="#3b82f6" stroke-width="3"/>
+  <rect x="560" y="180" width="80" height="40" fill="#2563eb" rx="6"/>
+  <text x="600" y="205" font-family="sans-serif" font-size="13" fill="#ffffff" font-weight="bold" text-anchor="middle">Printer</text>
+  
+  <text x="350" y="142" font-family="sans-serif" font-size="12" fill="#475569" font-weight="600" text-anchor="middle">Central Bus Backbone Cable</text>
+</svg>

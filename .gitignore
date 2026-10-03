@@ -1,0 +1,29 @@
+# Rust
+target/
+**/target/
+backend/target/
+
+# Node & Dependencies
+node_modules/
+**/node_modules/
+frontend/dist/
+frontend/.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary Storage Data
+storage/uploads/*
+storage/extracted/*
+storage/generated/*
+storage/previews/*
+!storage/uploads/.gitkeep
+!storage/extracted/.gitkeep
+!storage/generated/.gitkeep
+!storage/previews/.gitkeep
+backend/storage/
+
+# Environment & OS
+.env
+.DS_Store
+Thumbs.db
