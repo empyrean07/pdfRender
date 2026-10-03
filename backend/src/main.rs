@@ -66,7 +66,8 @@ async fn main() {
         .layer(cors)
         .with_state(state);
 
-    let addr = SocketAddr::from(([127, 0, 0, 1], config.port));
+    // Bind to 0.0.0.0 to accept connections across Docker container network
+    let addr = SocketAddr::from(([0, 0, 0, 0], config.port));
     info!("Starting Academic Markdown PDF Renderer backend on http://{}", addr);
 
     let listener = tokio::net::TcpListener::bind(addr)
